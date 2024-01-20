@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { AuthContext } from '../context/AuthContext';
 import swal from 'sweetalert';
@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const Logout = () => {
   const { setCurrentUser } = useContext(AuthContext);
-  const history = useHistory();
+  const history = useNavigate();
 
   const handleSignOut = async () => {
     try {

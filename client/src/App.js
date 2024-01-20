@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './pages/Home';
@@ -15,13 +15,11 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Navigation />
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/reset-password" component={ResetPassword} />
-          <PrivateRoute exact path="/" component={Home} />
-          <PrivateRoute exact path="/profile" component={Profile} />
-        </Switch>
+        <Routes>
+          <Route exact path="/login" element={Login} />
+          <Route exact path="/signup" element={SignUp} />
+          <Route exact path="/reset-password" element={ResetPassword} />
+        </Routes>
       </BrowserRouter>
     </AuthProvider>
   );
